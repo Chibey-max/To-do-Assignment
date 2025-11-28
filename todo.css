@@ -16,20 +16,20 @@ body[data-theme = "dark"]{
    --background: #101114;
     --primary-color: #1c1d20;
     --secondary-color: #4a4d57;
-    --accent-color: #00ffc4;
+    --accent-color: #ff4081;
     --text-color: #f9f9f9;
       --shadow-color:rgba(225, 255, 255, 0.1) ;
-     --button-hover:#00ffc4;
+     --button-hover:#db0073;
 }
 body[data-theme = "light"]{
    --background: #e9eaec;
     --primary-color: #bdadad3e;
     --fill-color:#fff;
     --secondary-color: #4a4d57;
-    --accent-color: #08ab85;
+    --accent-color: #ff4081;
     --text-color: #000000; 
     --shadow-color:#5c5a5a; 
-    --button-hover:#08ab85;
+    --button-hover:#ff4081;
 }
 
 body {
@@ -129,13 +129,13 @@ form {
 
 #add-button:hover {
     transition: 100ms;
-    background-color: #065f4ac5;
+    background-color: var(--button-hover);
     transition-duration: 0.4s;
 }
 #search-button:hover{
     transition:100ms;
     transition-duration: 0.4s;
-    background-color: #065f4ac5;
+    background-color:var(--button-hover);
 }
 .todo {
     display: flex;

@@ -12,8 +12,8 @@ const savedTheme = localStorage.getItem(`theme`) || `light`;
 body.setAttribute(`data-theme`, savedTheme);
 modeToggle.innerHTML =
   savedTheme === `dark`
-    ? `</i class ="fas fa-sun"></i>`
-    : `<i class = "fas fa-moon"></i>`;
+    ? `<ion-icon name="sunny-outline"></ion-icon>>`
+    : `<ion-icon name="moon-outline"></ion-icon>`;
 
 const toggleMode = () => {
   const currentTheme = body.getAttribute(`data-theme`);
