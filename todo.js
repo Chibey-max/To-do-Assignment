@@ -120,3 +120,39 @@ function getTodos() {
   const todos = localStorage.getItem(`todos`) || `[]`;
   return JSON.parse(todos);
 }
+let savedAlarms = JSON.parse(localStorage.getItem('alarms')) || [];
+
+function saveAlarms() {
+  localStorage.setItem('alarms', JSON.stringify(savedAlarms));
+}
+function setAlarms() {
+  const now = new Date();
+  const alarmTime = new Date();
+
+  const[hours, minutes] = alarm.split(':');
+  alarmTime.setHours(hours);
+  alarmTime.setMinutes(minutes);
+  alarmTime.setSeconds(0);
+
+if(alarmTime<now){
+  alarmTime.setDate(alarmTime.getDate()+1);
+}
+const timeToAlarm = alarmTime-now;
+let alarmObj = {
+  time,
+  message,
+  triggerAt: alarmTime.getTime()
+};
+savedAlarms.push(alarmObj);
+saveAlarms(); 
+
+scheduleAlarm(alarmObj , timeToAlarm);
+}
+function scheduleAlarm(alarmObj, timeToAlarm) {
+  setTimeout(() => {
+    const sound = document.getElementById('alarm-sound');
+    sound.play();
+    savedAlarms = savedAlarms.filter(a => a.triggerAt !== alarmObj.triggerAt);
+    saveAlarms();
+  }, timeToAlarm);
+}
